@@ -1,12 +1,18 @@
 ﻿using System;
+using Microsoft.Extensions.Configuration;
 
 namespace SeabatsData.App
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var configuration = new ConfigurationBuilder()
+                .AddEnvironmentVariables()
+                .Build();
+
+            var dataDir = configuration["SeabatsData:DataDir"];
+            Console.WriteLine(dataDir);
         }
     }
 }
