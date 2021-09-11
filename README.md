@@ -1,6 +1,6 @@
 # seabats-data
 
-## Setup
+## Environment Variables
 
-Set the environment variable `SeabatsData__DataDir` to a directory containing
-the data to analyze.
+- `SeabatsData__InputDir`: directory containing the data to analyze
+- `SeabatsData__ICAOs`: comma-separated list of ICAOs to include in analysis
