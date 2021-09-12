@@ -7,8 +7,11 @@
 
   <ItemGroup>
     <PackageReference Include="GeoJSON.Net" Version="1.2.19" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="5.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SeabatsData.Core\SeabatsData.Core.csproj" />
   </ItemGroup>
 
 </Project>

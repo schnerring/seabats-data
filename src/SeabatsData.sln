@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeabatsData.App", "SeabatsData.App\SeabatsData.App.csproj", "{9325A4CB-ECDB-44E8-A3DB-199E19355BFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeabatsData.MaritimeBoundaries", "SeabatsData.MaritimeBoundaries\SeabatsData.MaritimeBoundaries.csproj", "{43371400-FAA2-46F0-B719-3CCD45D84C09}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeabatsData.MaritimeBoundaries", "SeabatsData.MaritimeBoundaries\SeabatsData.MaritimeBoundaries.csproj", "{43371400-FAA2-46F0-B719-3CCD45D84C09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeabatsData.Core", "SeabatsData.Core\SeabatsData.Core.csproj", "{F070DCC4-E735-4BF3-B5D4-2F7885063932}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,18 @@ Global
 		{43371400-FAA2-46F0-B719-3CCD45D84C09}.Release|x64.Build.0 = Release|Any CPU
 		{43371400-FAA2-46F0-B719-3CCD45D84C09}.Release|x86.ActiveCfg = Release|Any CPU
 		{43371400-FAA2-46F0-B719-3CCD45D84C09}.Release|x86.Build.0 = Release|Any CPU
+		{F070DCC4-E735-4BF3-B5D4-2F7885063932}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F070DCC4-E735-4BF3-B5D4-2F7885063932}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F070DCC4-E735-4BF3-B5D4-2F7885063932}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F070DCC4-E735-4BF3-B5D4-2F7885063932}.Debug|x64.Build.0 = Debug|Any CPU
+		{F070DCC4-E735-4BF3-B5D4-2F7885063932}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F070DCC4-E735-4BF3-B5D4-2F7885063932}.Debug|x86.Build.0 = Debug|Any CPU
+		{F070DCC4-E735-4BF3-B5D4-2F7885063932}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F070DCC4-E735-4BF3-B5D4-2F7885063932}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F070DCC4-E735-4BF3-B5D4-2F7885063932}.Release|x64.ActiveCfg = Release|Any CPU
+		{F070DCC4-E735-4BF3-B5D4-2F7885063932}.Release|x64.Build.0 = Release|Any CPU
+		{F070DCC4-E735-4BF3-B5D4-2F7885063932}.Release|x86.ActiveCfg = Release|Any CPU
+		{F070DCC4-E735-4BF3-B5D4-2F7885063932}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
