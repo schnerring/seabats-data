@@ -19,21 +19,36 @@ namespace SeabatsData.App.AdsbExchange
             var unixMilliseconds = Convert.ToInt64(flight.Timestamp * 1000);
             Date = DateTimeOffset.FromUnixTimeMilliseconds(unixMilliseconds).DateTime;
 
-            if (flight.Trace == null) return;
+            if (flight.Trace == null || !flight.Trace.Any())
+            {
+                IsInvalid = true;
+                return;
+            }
 
             // See: https://www.adsbexchange.com/version-2-api-wip/
+            const int secondsAfterTimestamp = 0;
             const int latIndex = 1;
             const int lonIndex = 2;
 
-            Coords = flight.Trace.Select(t => new[] {(double) t[latIndex], (double) t[lonIndex]});
+            var traceStartStr = flight.Trace.First()[secondsAfterTimestamp].ToString();
+            var traceEndStr = flight.Trace.Last()[secondsAfterTimestamp].ToString();
+            var traceStart = Date.AddSeconds(double.Parse(traceStartStr!)); // TODO?
+            var traceEnd = Date.AddSeconds(double.Parse(traceEndStr!));
+            DurationSeconds = (traceEnd - traceStart).TotalSeconds;
+
+            Coords = flight.Trace.Select(t => new[] {(double) t[latIndex], (double) t[lonIndex]}).ToList();
         }
+
+        public bool IsInvalid { get; }
+
+        public double DurationSeconds { get; }
 
         public string Icao { get; }
 
         public DateTime Date { get; }
 
-        public IEnumerable<double[]> Coords { get; set; }
-        
+        public IReadOnlyCollection<double[]> Coords { get; }
+
         private class JsonModel
         {
             public string Hex { get; set; }
