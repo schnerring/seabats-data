@@ -29,9 +29,10 @@ namespace SeabatsData.MaritimeBoundaries
             {
                 new
                 {
-                    Title = "Maritime SAR Region of Libya",
+                    Label = "Maritime SAR Region of Libya",
                     Attribution = "<TODO>",
-                    Color = "green",
+                    Description = "consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+                    Color = "wheat",
                     DegreeCoords = new[]
                     {
                         ((32, 22.00), (11, 30.00)),
@@ -45,9 +46,10 @@ namespace SeabatsData.MaritimeBoundaries
                 },
                 new
                 {
-                    Title = "Malta SRR",
+                    Label = "Malta SRR",
                     Attribution = "<TODO>",
-                    Color = "blue",
+                    Description = "Lorem ipsum dolor sit amet",
+                    Color = "lightskyblue",
                     DegreeCoords = new[]
                     {
                         ((36, 30.00), (11, 30.00)),
@@ -59,9 +61,10 @@ namespace SeabatsData.MaritimeBoundaries
                 },
                 new
                 {
-                    Title = "MRCC ROMA",
+                    Label = "MRCC ROMA",
                     Attribution = "<TODO>",
-                    Color = "red",
+                    Description = "Lorem ipsum dolor sit amet",
+                    Color = "darksalmon",
                     DegreeCoords = new[]
                     {
                         ((43, 47.10), (07, 31.80)),
@@ -130,8 +133,9 @@ namespace SeabatsData.MaritimeBoundaries
                         new Dictionary<string, object>
                         {
                             {"type", "sar"},
-                            {"title", sarZone.Title},
+                            {"label", sarZone.Label},
                             {"attribution", sarZone.Attribution},
+                            {"description", sarZone.Description },
                             {"color", sarZone.Color}
                         },
                         Guid.NewGuid().ToString()));
@@ -151,14 +155,16 @@ namespace SeabatsData.MaritimeBoundaries
                     Type = "12nm",
                     Attribution =
                         @"Flanders Marine Institute (2019). Maritime Boundaries Geodatabase: Territorial Seas (12NM), version 3. Available online at <a href=""https://www.marineregions.org/"">https://www.marineregions.org/</a> <a href=""https://doi.org/10.14284/387"">https://doi.org/10.14284/387</a>.",
-                    Color = "var(--grey2)"
+                    Description = "consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+                    Color = "#acacac" // var(--grey2)
                 },
                 new
                 {
                     Type = "24nm",
                     Attribution =
                         @"Flanders Marine Institute (2019). Maritime Boundaries Geodatabase: Contiguous Zones (24NM), version 3. Available online at <a href=""https://www.marineregions.org/"">https://www.marineregions.org/</a> <a href=""https://doi.org/10.14284/384"">https://doi.org/10.14284/384</a>.",
-                    Color = "var(--grey3)"
+                    Description = "Lorem ipsum dolor sit amet",
+                    Color = "#707070" // var(--grey3)
                 }
             };
 
@@ -184,8 +190,9 @@ namespace SeabatsData.MaritimeBoundaries
                             new Dictionary<string, object>
                             {
                                 {"type", boundary.Type},
-                                {"title", feature.Properties["GEONAME"]},
+                                {"label", feature.Properties["GEONAME"]},
                                 {"attribution", boundary.Attribution},
+                                {"description", boundary.Description },
                                 {"color", boundary.Color}
                             },
                             Guid.NewGuid().ToString()));
