@@ -14,7 +14,7 @@ namespace SeabatsData.MaritimeBoundaries
     {
         private static readonly string[] Countries =
         {
-            "Greece", "Italy", "Libya", "Malta", "Tunisia", "Turkey"
+             "Italy", "Libya", "Malta", "Tunisia", //"Turkey", "Greece"
         };
 
         private static async Task Main(string[] args)
@@ -31,6 +31,7 @@ namespace SeabatsData.MaritimeBoundaries
                 {
                     Title = "Maritime SAR Region of Libya",
                     Attribution = "<TODO>",
+                    Color = "green",
                     DegreeCoords = new[]
                     {
                         ((32, 22.00), (11, 30.00)),
@@ -46,19 +47,21 @@ namespace SeabatsData.MaritimeBoundaries
                 {
                     Title = "Malta SRR",
                     Attribution = "<TODO>",
+                    Color = "blue",
                     DegreeCoords = new[]
                     {
                         ((36, 30.00), (11, 30.00)),
                         ((36, 30.00), (19, 00.00)),
                         ((34, 20.00), (23, 35.00)),
                         ((34, 20.00), (11, 30.00)),
-                        ((36, 30.00), (11, 30.00)),
+                        ((36, 30.00), (11, 30.00))
                     }
                 },
                 new
                 {
                     Title = "MRCC ROMA",
                     Attribution = "<TODO>",
+                    Color = "red",
                     DegreeCoords = new[]
                     {
                         ((43, 47.10), (07, 31.80)),
@@ -126,10 +129,12 @@ namespace SeabatsData.MaritimeBoundaries
                         polygon,
                         new Dictionary<string, object>
                         {
-                            {"Type", "SAR"},
-                            {"Title", sarZone.Title},
-                            {"Attribution", sarZone.Attribution},
-                        }));
+                            {"type", "sar"},
+                            {"title", sarZone.Title},
+                            {"attribution", sarZone.Attribution},
+                            {"color", sarZone.Color}
+                        },
+                        Guid.NewGuid().ToString()));
             }
 
             var serialized = JsonConvert.SerializeObject(export);
@@ -143,15 +148,17 @@ namespace SeabatsData.MaritimeBoundaries
             {
                 new
                 {
-                    Type = "12NM",
+                    Type = "12nm",
                     Attribution =
-                        @"Flanders Marine Institute (2019). Maritime Boundaries Geodatabase: Territorial Seas (12NM), version 3. Available online at <a href=""https://www.marineregions.org/"">https://www.marineregions.org/</a> <a href=""https://doi.org/10.14284/387"">https://doi.org/10.14284/387</a>."
+                        @"Flanders Marine Institute (2019). Maritime Boundaries Geodatabase: Territorial Seas (12NM), version 3. Available online at <a href=""https://www.marineregions.org/"">https://www.marineregions.org/</a> <a href=""https://doi.org/10.14284/387"">https://doi.org/10.14284/387</a>.",
+                    Color = "var(--grey2)"
                 },
                 new
                 {
-                    Type = "24NM",
+                    Type = "24nm",
                     Attribution =
-                        @"Flanders Marine Institute (2019). Maritime Boundaries Geodatabase: Contiguous Zones (24NM), version 3. Available online at <a href=""https://www.marineregions.org/"">https://www.marineregions.org/</a> <a href=""https://doi.org/10.14284/384"">https://doi.org/10.14284/384</a>."
+                        @"Flanders Marine Institute (2019). Maritime Boundaries Geodatabase: Contiguous Zones (24NM), version 3. Available online at <a href=""https://www.marineregions.org/"">https://www.marineregions.org/</a> <a href=""https://doi.org/10.14284/384"">https://doi.org/10.14284/384</a>.",
+                    Color = "var(--grey3)"
                 }
             };
 
@@ -176,10 +183,12 @@ namespace SeabatsData.MaritimeBoundaries
                             feature.Geometry,
                             new Dictionary<string, object>
                             {
-                                {"Type", boundary.Type},
-                                {"Title", feature.Properties["GEONAME"]},
-                                {"Attribution", boundary.Attribution}
-                            }));
+                                {"type", boundary.Type},
+                                {"title", feature.Properties["GEONAME"]},
+                                {"attribution", boundary.Attribution},
+                                {"color", boundary.Color}
+                            },
+                            Guid.NewGuid().ToString()));
 
                 var serialized = JsonConvert.SerializeObject(export);
                 var outPath = Path.Combine(OutputDir, $"{boundary.Type}.geojson");

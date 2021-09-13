@@ -17,9 +17,9 @@ namespace SeabatsData.App.AdsbExchange
             Icao = string.IsNullOrWhiteSpace(flight.Icao) ? flight.Hex : flight.Icao;
 
             var unixMilliseconds = Convert.ToInt64(flight.Timestamp * 1000);
-            Date = DateTimeOffset.FromUnixTimeMilliseconds(unixMilliseconds).DateTime;
+            var date = DateTimeOffset.FromUnixTimeMilliseconds(unixMilliseconds).DateTime;
 
-            if (flight.Trace == null || !flight.Trace.Any())
+            if (flight.Trace == null || flight.Trace.Count() < 2)
             {
                 IsInvalid = true;
                 return;
@@ -32,20 +32,22 @@ namespace SeabatsData.App.AdsbExchange
 
             var traceStartStr = flight.Trace.First()[secondsAfterTimestamp].ToString();
             var traceEndStr = flight.Trace.Last()[secondsAfterTimestamp].ToString();
-            var traceStart = Date.AddSeconds(double.Parse(traceStartStr!)); // TODO?
-            var traceEnd = Date.AddSeconds(double.Parse(traceEndStr!));
-            DurationSeconds = (traceEnd - traceStart).TotalSeconds;
+            From = date.AddSeconds(double.Parse(traceStartStr!)).ToUniversalTime(); // TODO?
+            To = date.AddSeconds(double.Parse(traceEndStr!)).ToUniversalTime();
+            DurationSeconds = (To - From).TotalSeconds;
 
-            Coords = flight.Trace.Select(t => new[] {(double) t[latIndex], (double) t[lonIndex]}).ToList();
+            Coords = flight.Trace.Select(t => new[] {(double) t[lonIndex], (double) t[latIndex]}).ToList();
         }
 
         public bool IsInvalid { get; }
 
-        public double DurationSeconds { get; }
-
         public string Icao { get; }
 
-        public DateTime Date { get; }
+        public DateTime From { get; }
+
+        public DateTime To { get; }
+
+        public double DurationSeconds { get; }
 
         public IReadOnlyCollection<double[]> Coords { get; }
 
