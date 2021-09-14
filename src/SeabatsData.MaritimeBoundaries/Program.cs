@@ -29,10 +29,10 @@ namespace SeabatsData.MaritimeBoundaries
             {
                 new
                 {
-                    Label = "Maritime SAR Region of Libya",
-                    Attribution = "<TODO>",
+                    Label = "SAR Region of Libya",
+                    Attribution = "© International Maritime Organization (https://gisis.imo.org)",
                     Description = "consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
-                    Color = "wheat",
+                    Color = "#707070",
                     DegreeCoords = new[]
                     {
                         ((32, 22.00), (11, 30.00)),
@@ -46,10 +46,10 @@ namespace SeabatsData.MaritimeBoundaries
                 },
                 new
                 {
-                    Label = "Malta SRR",
-                    Attribution = "<TODO>",
+                    Label = "SAR Region of Malta",
+                    Attribution = "© International Maritime Organization (https://gisis.imo.org)",
                     Description = "Lorem ipsum dolor sit amet",
-                    Color = "lightskyblue",
+                    Color = "#acacac",
                     DegreeCoords = new[]
                     {
                         ((36, 30.00), (11, 30.00)),
@@ -61,10 +61,10 @@ namespace SeabatsData.MaritimeBoundaries
                 },
                 new
                 {
-                    Label = "MRCC ROMA",
-                    Attribution = "<TODO>",
+                    Label = "SAR Region of Libya",
+                    Attribution = "© International Maritime Organization (https://gisis.imo.org)",
                     Description = "Lorem ipsum dolor sit amet",
-                    Color = "darksalmon",
+                    Color = "#1148fe",
                     DegreeCoords = new[]
                     {
                         ((43, 47.10), (07, 31.80)),
