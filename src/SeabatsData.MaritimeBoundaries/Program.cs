@@ -12,6 +12,10 @@ namespace SeabatsData.MaritimeBoundaries
 {
     internal class Program : ProgramBase
     {
+        private const string Blue = "#1148fe";
+        private const string Grey2 = "#070707";
+        private const string Grey3 = "#acacac";
+
         private static readonly string[] Countries =
         {
              "Italy", "Libya", "Malta", "Tunisia", //"Turkey", "Greece"
@@ -32,7 +36,7 @@ namespace SeabatsData.MaritimeBoundaries
                     Label = "SAR Region of Libya",
                     Attribution = "© International Maritime Organization (https://gisis.imo.org)",
                     Description = "consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
-                    Color = "#707070",
+                    Color = Blue,
                     DegreeCoords = new[]
                     {
                         ((32, 22.00), (11, 30.00)),
@@ -49,7 +53,7 @@ namespace SeabatsData.MaritimeBoundaries
                     Label = "SAR Region of Malta",
                     Attribution = "© International Maritime Organization (https://gisis.imo.org)",
                     Description = "Lorem ipsum dolor sit amet",
-                    Color = "#acacac",
+                    Color = Grey2,
                     DegreeCoords = new[]
                     {
                         ((36, 30.00), (11, 30.00)),
@@ -61,10 +65,10 @@ namespace SeabatsData.MaritimeBoundaries
                 },
                 new
                 {
-                    Label = "SAR Region of Libya",
+                    Label = "SAR Region of Italy",
                     Attribution = "© International Maritime Organization (https://gisis.imo.org)",
                     Description = "Lorem ipsum dolor sit amet",
-                    Color = "#1148fe",
+                    Color = Grey3,
                     DegreeCoords = new[]
                     {
                         ((43, 47.10), (07, 31.80)),
@@ -156,7 +160,7 @@ namespace SeabatsData.MaritimeBoundaries
                     Attribution =
                         @"Flanders Marine Institute (2019). Maritime Boundaries Geodatabase: Territorial Seas (12NM), version 3. Available online at <a href=""https://www.marineregions.org/"">https://www.marineregions.org/</a> <a href=""https://doi.org/10.14284/387"">https://doi.org/10.14284/387</a>.",
                     Description = "consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
-                    Color = "#acacac" // var(--grey2)
+                    Color = Grey3 
                 },
                 new
                 {
@@ -164,7 +168,7 @@ namespace SeabatsData.MaritimeBoundaries
                     Attribution =
                         @"Flanders Marine Institute (2019). Maritime Boundaries Geodatabase: Contiguous Zones (24NM), version 3. Available online at <a href=""https://www.marineregions.org/"">https://www.marineregions.org/</a> <a href=""https://doi.org/10.14284/384"">https://doi.org/10.14284/384</a>.",
                     Description = "Lorem ipsum dolor sit amet",
-                    Color = "#707070" // var(--grey3)
+                    Color = Grey2
                 }
             };
 
